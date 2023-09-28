@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<nav class="navbar bg-primary navbar-expand-lg" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'main:show_main' %}">Shopping List</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" href="{% url 'main:show_main' %}">{{name}}</a>
+          <a class="nav-link active" href="{% url 'main:show_main' %}">{{class}}</a>
+        </div>
+        <form class="ms-auto me-2">
+            <a href="{% url 'main:logout' %}">
+                <button class="btn btn-outline-dark">
+                    Logout
+                </button>
+            </a>
+        </form>        
+      </div>
+    </div>
+  </nav>
 
-<h1>Shopping List Page</h1>
-
-<h5>Name:</h5>
-<p>{{ name }}</p> <!-- Change it to your name -->
-
-<h5>Class:</h5>
-<p>{{ class }}</p> 
-
-...
 <table>
     <tr>
         <th>Name</th>
@@ -48,12 +60,6 @@
 <a href="{% url 'main:create_product' %}">
     <button>
         Add New Product
-    </button>
-</a>
-
-<a href="{% url 'main:logout' %}">
-    <button>
-        Logout
     </button>
 </a>
 
